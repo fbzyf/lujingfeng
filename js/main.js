@@ -13,22 +13,31 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var isEn = document.documentElement.lang === 'en';
+  var lang = document.documentElement.lang;
+  var isEn = lang === 'en';
+  var isZhTw = lang === 'zh-Hant';
+
+  function t(en, zhCn, zhTw) {
+    if (isEn) return en;
+    if (isZhTw) return zhTw;
+    return zhCn;
+  }
+
   var i18n = {
-    newsShow: isEn ? 'View Details →' : '查看详情 →',
-    newsHide: isEn ? 'Hide ↑' : '收起详情 ↑',
-    backToTop: isEn ? 'Back to top' : '回到顶部',
-    formErrName: isEn ? 'Please enter your name' : '请填写您的姓名',
-    formErrContact: isEn ? 'Please provide a phone number or email' : '请至少填写电话或邮箱',
-    formErrEmail: isEn ? 'Please enter a valid email address' : '请输入正确的邮箱格式',
-    formErrMessage: isEn ? 'Please enter your message' : '请填写留言内容',
-    mailSubject: isEn ? '【Website Inquiry】From ' : '【网站留言】来自 ',
-    mailName: isEn ? 'Name: ' : '姓名：',
-    mailCompany: isEn ? 'Company: ' : '公司：',
-    mailPhone: isEn ? 'Phone: ' : '电话：',
-    mailEmail: isEn ? 'Email: ' : '邮箱：',
-    mailMessage: isEn ? 'Message:\n' : '留言内容：\n',
-    mailNotFilled: isEn ? 'Not provided' : '未填写'
+    newsShow: t('View Details →', '查看详情 →', '查看詳情 →'),
+    newsHide: t('Hide ↑', '收起详情 ↑', '收起詳情 ↑'),
+    backToTop: t('Back to top', '回到顶部', '回到頂部'),
+    formErrName: t('Please enter your name', '请填写您的姓名', '請填寫您的姓名'),
+    formErrContact: t('Please provide a phone number or email', '请至少填写电话或邮箱', '請至少填寫電話或郵箱'),
+    formErrEmail: t('Please enter a valid email address', '请输入正确的邮箱格式', '請輸入正確的郵箱格式'),
+    formErrMessage: t('Please enter your message', '请填写留言内容', '請填寫留言內容'),
+    mailSubject: t('【Website Inquiry】From ', '【网站留言】来自 ', '【網站留言】來自 '),
+    mailName: t('Name: ', '姓名：', '姓名：'),
+    mailCompany: t('Company: ', '公司：', '公司：'),
+    mailPhone: t('Phone: ', '电话：', '電話：'),
+    mailEmail: t('Email: ', '邮箱：', '郵箱：'),
+    mailMessage: t('Message:\n', '留言内容：\n', '留言內容：\n'),
+    mailNotFilled: t('Not provided', '未填写', '未填寫')
   };
 
   var backToTopBtn = document.querySelector('.back-to-top');

@@ -22,27 +22,35 @@
 
 ## 中英文双语
 
-网站提供中文（默认）与英文两个版本，通过导航栏右上角按钮切换：
+网站提供简体中文（默认）、繁体中文与英文三个版本，通过导航栏右上角按钮切换：
 
 | 语言 | 入口 | 目录 |
 |------|------|------|
-| 中文 | `index.html` | 项目根目录 |
+| 简体中文 | `index.html` | 项目根目录 |
+| 繁體中文 | `zh-tw/index.html` | `zh-tw/` 目录 |
 | English | `en/index.html` | `en/` 目录 |
 
-- 中文版导航栏点击 **EN** 进入对应英文页
-- 英文版导航栏点击 **中文** 返回对应中文页
-- 修改中文内容时，请同步更新 `en/` 下同名英文文件
+- 简体页：**繁體** / **EN**
+- 繁体页：**简体** / **EN**
+- 英文页：**简体** / **繁體**
+- 修改内容时请同步更新根目录、`zh-tw/`、`en/` 下同名文件
 
 ## 网站结构
 
 ```
 lujingfeng/
-├── index.html          ← 首页（中文）
-├── about.html          ← 关于我们（中文）
-├── brands.html         ← 代理品牌（中文）
-├── news.html           ← 新闻动态（中文）
-├── contact.html        ← 联系我们（中文）
-├── en/                 ← 英文版页面目录
+├── index.html          ← 首页（简体中文）
+├── about.html          ← 关于我们（简体中文）
+├── brands.html         ← 代理品牌（简体中文）
+├── news.html           ← 新闻动态（简体中文）
+├── contact.html        ← 联系我们（简体中文）
+├── zh-tw/              ← 繁体中文页面目录
+│   ├── index.html
+│   ├── about.html
+│   ├── brands.html
+│   ├── news.html
+│   └── contact.html
+├── en/                 ← 英文页面目录
 │   ├── index.html
 │   ├── about.html
 │   ├── brands.html
@@ -105,7 +113,7 @@ lujingfeng/
 
 | 项目 | 位置 | 说明 |
 |------|------|------|
-| 关于我们「企业信息」侧栏卡片 | `about.html`、`en/about.html` | 已用 `d-none` 暂时隐藏，公司简介改为全宽展示；确定展示方案后去掉侧栏列上的 `d-none`，并将左侧列改回 `col-lg-7` |
+| 关于我们「企业信息」侧栏卡片 | `about.html`、`zh-tw/about.html`、`en/about.html` | 已用 `d-none` 暂时隐藏，公司简介改为全宽展示；确定展示方案后去掉侧栏列上的 `d-none`，并将左侧列改回 `col-lg-7` |
 
 ## 技术说明
 
