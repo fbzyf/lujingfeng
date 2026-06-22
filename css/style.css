@@ -117,19 +117,28 @@ img {
 .navbar-brand .brand-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: 1.25;
+  gap: 0;
+}
+
+.navbar-brand .brand-text .parent-name-en,
+.navbar-brand .brand-text .parent-name-cn,
+.navbar-brand .brand-text .company-name-cn {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.navbar-brand .brand-text .parent-name-en {
+  color: var(--accent);
+  letter-spacing: 0.3px;
+}
+
+.navbar-brand .brand-text .parent-name-cn {
+  color: var(--text-light);
 }
 
 .navbar-brand .brand-text .company-name-cn {
-  font-size: 1.15rem;
-  font-weight: 700;
   color: var(--primary);
-}
-
-.navbar-brand .brand-text .company-name-en {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  letter-spacing: 0.5px;
 }
 
 .navbar .nav-link {
@@ -943,12 +952,10 @@ img {
     padding: 40px 0;
   }
 
+  .navbar-brand .brand-text .parent-name-en,
+  .navbar-brand .brand-text .parent-name-cn,
   .navbar-brand .brand-text .company-name-cn {
-    font-size: 0.95rem;
-  }
-
-  .navbar-brand .brand-text .company-name-en {
-    font-size: 0.55rem;
+    font-size: 0.72rem;
   }
 
   .navbar-brand img {
