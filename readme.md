@@ -101,6 +101,12 @@ lujingfeng/
 ### 替换品牌 Logo 图片
 将品牌 Logo 图片放入 `images/brands/` 目录，然后在 HTML 中将 `<div class="brand-logo-placeholder">` 替换为 `<img>` 标签。
 
+## 待处理事项
+
+| 项目 | 位置 | 说明 |
+|------|------|------|
+| 关于我们「企业信息」侧栏卡片 | `about.html`、`en/about.html` | 已用 `d-none` 暂时隐藏，公司简介改为全宽展示；确定展示方案后去掉侧栏列上的 `d-none`，并将左侧列改回 `col-lg-7` |
+
 ## 技术说明
 
 - **无需安装任何依赖**：所有外部资源（Bootstrap、图标）通过 CDN 引入
