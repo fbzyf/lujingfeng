@@ -20,23 +20,42 @@
 - **阿里云/腾讯云 OSS**：对象存储静态托管
 - **Nginx / Apache**：任意 Web 服务器
 
+## 中英文双语
+
+网站提供中文（默认）与英文两个版本，通过导航栏右上角按钮切换：
+
+| 语言 | 入口 | 目录 |
+|------|------|------|
+| 中文 | `index.html` | 项目根目录 |
+| English | `en/index.html` | `en/` 目录 |
+
+- 中文版导航栏点击 **EN** 进入对应英文页
+- 英文版导航栏点击 **中文** 返回对应中文页
+- 修改中文内容时，请同步更新 `en/` 下同名英文文件
+
 ## 网站结构
 
 ```
 lujingfeng/
-├── index.html          ← 首页（公司介绍、品牌展示、最新动态）
-├── about.html          ← 关于我们（公司详情、优势、服务领域）
-├── brands.html         ← 代理品牌（7个品牌详细信息）
-├── news.html           ← 新闻动态（新闻列表，可展开查看详情）
-├── contact.html        ← 联系我们（联系信息 + 在线留言表单）
+├── index.html          ← 首页（中文）
+├── about.html          ← 关于我们（中文）
+├── brands.html         ← 代理品牌（中文）
+├── news.html           ← 新闻动态（中文）
+├── contact.html        ← 联系我们（中文）
+├── en/                 ← 英文版页面目录
+│   ├── index.html
+│   ├── about.html
+│   ├── brands.html
+│   ├── news.html
+│   └── contact.html
 ├── logo.png            ← 公司 Logo
 ├── css/
 │   └── style.css       ← 全站样式
 ├── js/
-│   └── main.js         ← 交互逻辑（导航、动画、表单等）
+│   └── main.js         ← 交互逻辑（含中英文表单/新闻文案）
 ├── images/             ← 图片资源目录
-│   ├── hero/           ← 轮播图（待添加）
-│   └── brands/         ← 品牌 Logo 图片（待添加）
+│   ├── hero/           ← 轮播图
+│   └── brands/         ← 品牌 Logo 图片
 └── readme.md           ← 本文件
 ```
 

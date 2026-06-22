@@ -13,6 +13,29 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  var isEn = document.documentElement.lang === 'en';
+  var i18n = {
+    newsShow: isEn ? 'View Details →' : '查看详情 →',
+    newsHide: isEn ? 'Hide ↑' : '收起详情 ↑',
+    backToTop: isEn ? 'Back to top' : '回到顶部',
+    formErrName: isEn ? 'Please enter your name' : '请填写您的姓名',
+    formErrContact: isEn ? 'Please provide a phone number or email' : '请至少填写电话或邮箱',
+    formErrEmail: isEn ? 'Please enter a valid email address' : '请输入正确的邮箱格式',
+    formErrMessage: isEn ? 'Please enter your message' : '请填写留言内容',
+    mailSubject: isEn ? '【Website Inquiry】From ' : '【网站留言】来自 ',
+    mailName: isEn ? 'Name: ' : '姓名：',
+    mailCompany: isEn ? 'Company: ' : '公司：',
+    mailPhone: isEn ? 'Phone: ' : '电话：',
+    mailEmail: isEn ? 'Email: ' : '邮箱：',
+    mailMessage: isEn ? 'Message:\n' : '留言内容：\n',
+    mailNotFilled: isEn ? 'Not provided' : '未填写'
+  };
+
+  var backToTopBtn = document.querySelector('.back-to-top');
+  if (backToTopBtn) {
+    backToTopBtn.title = i18n.backToTop;
+  }
+
   // ==========================================
   // 1. 导航栏滚动效果 - 滚动时添加阴影
   // ==========================================
@@ -30,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // ==========================================
   // 2. 回到顶部按钮
   // ==========================================
-  const backToTopBtn = document.querySelector('.back-to-top');
   if (backToTopBtn) {
     // 监听滚动，显示/隐藏按钮
     window.addEventListener('scroll', function () {
@@ -90,9 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // 更新按钮文字
         if (detailEl.classList.contains('show')) {
-          this.textContent = '收起详情 ↑';
+          this.textContent = i18n.newsHide;
         } else {
-          this.textContent = '查看详情 →';
+          this.textContent = i18n.newsShow;
         }
       }
     });
@@ -118,16 +140,16 @@ document.addEventListener('DOMContentLoaded', function () {
       let errorMsg = '';
 
       if (!name) {
-        errorMsg = '请填写您的姓名';
+        errorMsg = i18n.formErrName;
         isValid = false;
       } else if (!phone && !email) {
-        errorMsg = '请至少填写电话或邮箱';
+        errorMsg = i18n.formErrContact;
         isValid = false;
       } else if (email && !isValidEmail(email)) {
-        errorMsg = '请输入正确的邮箱格式';
+        errorMsg = i18n.formErrEmail;
         isValid = false;
       } else if (!message) {
-        errorMsg = '请填写留言内容';
+        errorMsg = i18n.formErrMessage;
         isValid = false;
       }
 
@@ -137,13 +159,13 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // 构建 mailto 链接发送邮件
-      const subject = encodeURIComponent('【网站留言】来自 ' + name + (company ? '（' + company + '）' : ''));
+      const subject = encodeURIComponent(i18n.mailSubject + name + (company ? (isEn ? ' (' + company + ')' : '（' + company + '）') : ''));
       const body = encodeURIComponent(
-        '姓名：' + name + '\n' +
-        '公司：' + (company || '未填写') + '\n' +
-        '电话：' + (phone || '未填写') + '\n' +
-        '邮箱：' + (email || '未填写') + '\n' +
-        '留言内容：\n' + message
+        i18n.mailName + name + '\n' +
+        i18n.mailCompany + (company || i18n.mailNotFilled) + '\n' +
+        i18n.mailPhone + (phone || i18n.mailNotFilled) + '\n' +
+        i18n.mailEmail + (email || i18n.mailNotFilled) + '\n' +
+        i18n.mailMessage + message
       );
 
       // 使用 mailto 发送
