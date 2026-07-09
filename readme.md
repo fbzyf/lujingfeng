@@ -20,6 +20,19 @@
 - **阿里云/腾讯云 OSS**：对象存储静态托管
 - **Nginx / Apache**：任意 Web 服务器
 
+### 发布前冒烟测试
+
+```bash
+cd /Users/yufeng/code/lujingfeng_lp
+python3 -m http.server 8080   # 另开终端
+python3 scripts/smoke_test.py --base http://localhost:8080
+python3 scripts/smoke_test.py --base https://lpfbao.com   # 验证线上
+```
+
+仅检查本地文件结构：`python3 scripts/smoke_test.py --files-only`
+
+Cursor 中可使用子代理 **lujingfeng-tester** 自动跑上述流程。
+
 ## 中英文双语
 
 网站提供简体中文（默认）、繁体中文与英文三个版本，通过导航栏右上角按钮切换：
@@ -93,9 +106,18 @@ lujingfeng/
 
 ### 修改公司信息
 在每个 HTML 文件中搜索并替换以下信息：
-- **公司地址**：搜索 `上海市徐汇区华泾路505号`
-- **联系电话**：搜索 `18017287575`
-- **邮箱地址**：搜索 `josh@linpo.com`
+
+**上海办公室（子公司）**
+- **地址**：`上海市徐汇区华泾路505号`
+- **电话**：`18017287575`
+- **邮箱**：`josh@linpo.com`
+
+**香港办公室（母公司 LPHK）**
+- **地址**：`Unit 1602, Gravity, No. 29 Hing Yip Street, Kwun Tong, Kowloon, Hong Kong.`
+- **电话**：`(852) 2755 8370`
+- **邮箱**：`frankiewong@linpohk.com`
+
+页脚与联系页已按「上海办公室 + 香港办公室」双栏展示；品牌叙事以 **Linpo Precision Limited（香港联宝精工）** 为母公司，上海陆精丰为子公司。
 
 ### 修改品牌信息
 编辑 `brands.html` 文件，找到对应品牌的 `<section>` 标签修改内容。
